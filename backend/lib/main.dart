@@ -42,7 +42,7 @@ class _CourseListState extends State<CourseList> {
   }
 
 /****************************************post courses********************************************************/
-  void addCourse(int id, String title, double price, String urlimg) async {
+  void addCourse(String title, double price, String urlimg) async {
     final response = await http.post(
       Uri.parse('http://localhost:4000/courses'),
       headers: <String, String>{
