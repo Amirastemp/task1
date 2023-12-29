@@ -12,7 +12,6 @@ class FormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController id = TextEditingController();
     TextEditingController titleController = TextEditingController();
     TextEditingController priceController = TextEditingController();
     TextEditingController imageUrlController = TextEditingController();
@@ -25,14 +24,6 @@ class FormPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
-              controller: id,
-              decoration: InputDecoration(
-                labelText: 'Id',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 20),
             TextField(
               controller: titleController,
               decoration: InputDecoration(
@@ -60,14 +51,12 @@ class FormPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 addCourse(
-                  id.text,
                   titleController.text,
                   double.tryParse(priceController.text) ?? 0.0,
                   imageUrlController.text,
                 );
 
                 Map<String, dynamic> newCourse = {
-                  'id': id.text,
                   'title': titleController.text,
                   'price': double.tryParse(priceController.text) ?? 0.0,
                   'imageUrl': imageUrlController.text,
